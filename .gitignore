@@ -1,0 +1,298 @@
+# .gitignore — Fichier de configuration Git pour exclure des fichiers du suivi de version
+# ======================================================================================
+#
+# UTILISATION :
+# Ce fichier indique à Git quels fichiers et dossiers ignorer (ne pas suivre ni committer).
+# Placez-le à la racine de votre dépôt. Git l'appliquera automatiquement.
+#
+# SYNTAXE :
+# - Une ligne = un pattern (motif de fichier/dossier).
+# - `#` en début de ligne = commentaire (ignoré par Git).
+# - `!` en début de ligne = négation (force l'inclusion même si un pattern précédent exclut).
+# - `*` = joker (correspond à n'importe quelle séquence de caractères sauf `/`).
+# - `**` = joker récursif (correspond à zéro ou plusieurs répertoires).
+# - `/` en fin de ligne = ne correspond qu'à un répertoire.
+# - `/` en début de ligne = ancre le pattern à la racine du dépôt.
+#
+# EXEMPLES :
+# - `*.log` → ignore tous les fichiers .log dans tous les répertoires.
+# - `/build/` → ignore le dossier build à la racine uniquement.
+# - `**/temp/` → ignore tous les dossiers nommés temp, partout.
+# - `!important.log` → force l'inclusion de important.log même si *.log est ignoré.
+#
+# VÉRIFIER SI UN FICHIER EST IGNORÉ :
+# - `git check-ignore -v <fichier>` affiche la règle qui ignore le fichier.
+# - `git status --ignored` liste tous les fichiers ignorés.
+#
+# APPLIQUER .gitignore À DES FICHIERS DÉJÀ SUIVIS :
+# Si un fichier est déjà committé, Git continue de le suivre même s'il est dans .gitignore.
+# Pour l'ignorer rétroactivement :
+#   git rm --cached <fichier>   # supprime du suivi, garde le fichier local
+#   git commit -m "Untrack fichier"
+#
+# ======================================================================================
+
+# ========================
+# Fichiers système et IDE
+# ========================
+
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+*.lnk
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+
+# Linux
+*~
+.directory
+
+# VS Code
+.vscode/
+*.code-workspace
+# Exception : garder les settings partagés si vous le souhaitez
+# !.vscode/settings.json
+# !.vscode/tasks.json
+# !.vscode/launch.json
+# !.vscode/extensions.json
+
+# JetBrains IDEs (PyCharm, IntelliJ, WebStorm, etc.)
+.idea/
+*.iml
+*.iws
+*.ipr
+
+# Visual Studio
+.vs/
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# Sublime Text
+*.sublime-project
+*.sublime-workspace
+
+# ========================
+# Langages et frameworks
+# ========================
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+ENV/
+.venv/
+pip-log.txt
+pip-delete-this-directory.txt
+.pytest_cache/
+.mypy_cache/
+.dmypy.json
+dmypy.json
+.coverage
+htmlcov/
+*.cover
+.hypothesis/
+*.egg
+*.egg-info/
+dist/
+build/
+*.whl
+
+# Node.js / JavaScript / TypeScript
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+lerna-debug.log*
+.pnpm-debug.log*
+.npm
+.eslintcache
+.node_repl_history
+*.tsbuildinfo
+.next/
+out/
+.nuxt/
+dist/
+.cache/
+.parcel-cache/
+
+# Java
+*.class
+*.jar
+*.war
+*.ear
+*.nar
+target/
+.gradle/
+build/
+.mtj.tmp/
+
+# C / C++
+*.o
+*.obj
+*.exe
+*.out
+*.app
+*.i*86
+*.x86_64
+*.hex
+*.elf
+*.lib
+*.a
+*.dll
+*.so
+*.dylib
+
+# Rust
+target/
+Cargo.lock
+# Exception : Cargo.lock est souvent versionné dans les binaires, pas dans les libs
+# Décommentez si vous développez une lib :
+# !Cargo.lock
+
+# Go
+*.exe
+*.exe~
+*.dll
+*.so
+*.dylib
+*.test
+*.out
+vendor/
+
+# Ruby
+*.gem
+*.rbc
+/.config
+/coverage/
+/InstalledFiles
+/pkg/
+/spec/reports/
+/tmp/
+.bundle/
+vendor/bundle/
+
+# PHP
+/vendor/
+composer.phar
+composer.lock
+# Exception : décommentez composer.lock si vous voulez figer les versions
+# !composer.lock
+
+# ========================
+# Fichiers de build et dist
+# ========================
+
+dist/
+build/
+out/
+*.min.js
+*.min.css
+*.map
+
+# ========================
+# Logs et bases de données
+# ========================
+
+*.log
+*.sql
+*.sqlite
+*.sqlite3
+*.db
+
+# ========================
+# Fichiers sensibles / secrets
+# ========================
+
+# Variables d'environnement
+.env
+.env.local
+.env.*.local
+*.env
+
+# Clés privées SSH / GPG
+*.pem
+*.key
+*.ppk
+id_rsa
+id_ed25519
+
+# Tokens et credentials
+*secret*
+*password*
+*credentials*
+*.crt
+*.p12
+
+# ========================
+# Fichiers temporaires
+# ========================
+
+*.tmp
+*.temp
+*.swp
+*.swo
+*.bak
+*.orig
+*~
+
+# ========================
+# Dossiers de test / demo
+# ========================
+
+/test-output/
+/demo/
+/sandbox/
+
+# ========================
+# Autres
+# ========================
+
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints/
+
+# Documentation générée
+/docs/_build/
+/site/
+
+# Archives
+*.zip
+*.tar
+*.tar.gz
+*.rar
+*.7z
+
+# ========================
+# Exceptions (patterns à forcer)
+# ========================
+
+# Si vous voulez inclure un fichier malgré un pattern ci-dessus, utilisez `!` :
+# Exemple : forcer l'inclusion d'un fichier important.log
+# !important.log
+
+# ========================
+# FIN DU FICHIER .gitignore
+# ========================
+#
+# RAPPELS :
+# - Testez vos patterns avec `git check-ignore -v <fichier>`.
+# - Pour ignorer un dossier entier : ajoutez `/` à la fin (ex: `logs/`).
+# - Pour ignorer récursivement : utilisez `**/` (ex: `**/node_modules/`).
+# - Commitez ce .gitignore pour que toute l'équipe l'utilise.
+# - Ne mettez JAMAIS de mots de passe, clés privées ou tokens dans Git.
+#
+# Ressources :
+# - https://git-scm.com/docs/gitignore
+# - https://github.com/github/gitignore (templates officiels)
+# - https://www.toptal.com/developers/gitignore (générateur en ligne)

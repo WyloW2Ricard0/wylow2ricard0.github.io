@@ -1,0 +1,8 @@
+# requirements.txt — outils optionnels
+
+# Le site est statique et ne nécessite pas Python pour être consulté.
+# Gardez ce fichier pour des besoins ponctuels (génération, vérification, conversion).
+
+# mkdocs-material==9.5.15   # Prévisualiser une doc interne (optionnel)
+# linkchecker==10.3.0       # Vérifier les liens avant publication
+# pillow==10.2.0            # Convertir des images (webp/avif)

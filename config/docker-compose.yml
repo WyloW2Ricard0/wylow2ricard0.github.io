@@ -1,0 +1,24 @@
+version: "3.8"
+
+# Previsualisation locale du site statique place dans ../public
+
+services:
+  web:
+    image: nginx:stable-alpine
+    container_name: wylow_site
+    restart: unless-stopped
+    ports:
+      - "8080:80"   # http://localhost:8080
+    volumes:
+      - ../public:/usr/share/nginx/html:ro
+    environment:
+      TZ: Europe/Paris
+    healthcheck:
+      test: ["CMD-SHELL", "wget -qO- http://localhost/ || exit 1"]
+      interval: 10s
+      timeout: 3s
+      retries: 5
+
+# Creez un dossier ../public avec vos assets (index.html, css, js) avant de lancer :
+#   cd config
+#   docker compose up --build

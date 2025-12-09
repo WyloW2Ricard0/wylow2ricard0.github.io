@@ -1,0 +1,393 @@
+# =============================================================================
+# EditorConfig — Configuration universelle des éditeurs de code
+# =============================================================================
+#
+# 📖 QU'EST-CE QUE EDITORCONFIG ?
+#
+# EditorConfig aide à maintenir des styles de codage cohérents entre différents
+# éditeurs et IDE pour plusieurs développeurs travaillant sur le même projet.
+#
+# ✅ AVANTAGES :
+#   - Uniformise l'indentation, encodage, fin de ligne
+#   - Fonctionne avec 40+ éditeurs (VS Code, IntelliJ, Sublime, Vim, etc.)
+#   - Réduit les conflits Git liés au formatage
+#   - Améliore la lisibilité du code
+#   - Évite les erreurs subtiles (espaces vs tabs, CRLF vs LF)
+#
+# 🔧 INSTALLATION :
+#   - VS Code : intégré nativement (ou extension EditorConfig for VS Code)
+#   - IntelliJ/WebStorm : intégré nativement
+#   - Sublime Text : installer plugin EditorConfig
+#   - Vim : installer plugin editorconfig-vim
+#   - Atom : installer editorconfig package
+#
+# 📍 EMPLACEMENT :
+#   - Racine du projet : .editorconfig
+#   - Appliqué récursivement à tous les sous-dossiers
+#   - Fichiers .editorconfig dans sous-dossiers peuvent surcharger
+#
+# 📚 DOCUMENTATION :
+#   - Site officiel : https://editorconfig.org
+#   - Propriétés : https://github.com/editorconfig/editorconfig/wiki/EditorConfig-Properties
+#   - Support éditeurs : https://editorconfig.org/#download
+#
+# =============================================================================
+
+# Indique que c'est le fichier EditorConfig racine (ne pas chercher au-dessus)
+root = true
+
+# =============================================================================
+# 🌍 RÈGLES PAR DÉFAUT (tous les fichiers)
+# =============================================================================
+
+[*]
+# Encodage : UTF-8 (support international, émojis, accents)
+charset = utf-8
+
+# Fin de ligne : LF (Unix/Mac) — standard universel
+# Alternatives : crlf (Windows), cr (Mac ancien)
+# 💡 Git peut convertir automatiquement (core.autocrlf)
+end_of_line = lf
+
+# Toujours terminer les fichiers par une ligne vide
+# ✅ Requis par POSIX, évite problèmes Git diff
+insert_final_newline = true
+
+# Supprimer les espaces en fin de ligne (trailing whitespace)
+# ✅ Réduit les conflits Git, améliore lisibilité
+trim_trailing_whitespace = true
+
+# =============================================================================
+# 📝 FICHIERS CODE SOURCE (indentation 4 espaces)
+# =============================================================================
+
+[*.{py,java,cs,cpp,c,h,hpp,rs,go,php,rb,swift,kt}]
+# Indentation : espaces (pas tabs)
+indent_style = space
+indent_size = 4
+
+# Largeur maximale recommandée (soft limit, pas appliqué automatiquement)
+# PEP 8 (Python) : 79, Google Style : 100, Standard moderne : 120
+max_line_length = 120
+
+# =============================================================================
+# 🌐 FICHIERS WEB (indentation 2 espaces — convention web)
+# =============================================================================
+
+[*.{js,jsx,ts,tsx,json,html,css,scss,sass,less,vue,svelte}]
+indent_style = space
+indent_size = 2
+max_line_length = 120
+
+# =============================================================================
+# ⚙️ FICHIERS CONFIGURATION (indentation 2 espaces)
+# =============================================================================
+
+[*.{yml,yaml,toml,xml}]
+indent_style = space
+indent_size = 2
+
+# YAML : espaces obligatoires (tabs interdits)
+[*.{yml,yaml}]
+indent_style = space
+indent_size = 2
+# Ne pas supprimer espaces trailing dans YAML (parfois significatifs)
+trim_trailing_whitespace = false
+
+# =============================================================================
+# 📦 FICHIERS PACKAGE MANAGERS
+# =============================================================================
+
+# package.json, composer.json, etc. : 2 espaces (convention)
+[{package.json,package-lock.json,composer.json,tsconfig.json,jsconfig.json}]
+indent_style = space
+indent_size = 2
+
+# requirements.txt, Pipfile : pas d'indentation
+[{requirements*.txt,Pipfile,Pipfile.lock}]
+indent_style = space
+indent_size = 0
+
+# =============================================================================
+# 🐚 SCRIPTS SHELL
+# =============================================================================
+
+[*.{sh,bash,zsh,fish}]
+indent_style = space
+indent_size = 2
+end_of_line = lf  # LF obligatoire sur Unix
+
+# PowerShell : 4 espaces
+[*.{ps1,psm1,psd1}]
+indent_style = space
+indent_size = 4
+end_of_line = crlf  # CRLF par défaut sur Windows
+
+# Batch Windows : tabs, CRLF
+[*.{bat,cmd}]
+indent_style = tab
+tab_width = 4
+end_of_line = crlf
+
+# =============================================================================
+# 📄 FICHIERS MARKDOWN
+# =============================================================================
+
+[*.{md,markdown}]
+indent_style = space
+indent_size = 2
+# Markdown : espaces trailing parfois significatifs (retour à la ligne)
+trim_trailing_whitespace = false
+max_line_length = 120
+
+# =============================================================================
+# 🗂️ FICHIERS DATA (CSV, TSV)
+# =============================================================================
+
+[*.{csv,tsv}]
+# CSV/TSV : ne pas toucher au formatage
+trim_trailing_whitespace = false
+insert_final_newline = false
+
+# =============================================================================
+# 🖼️ FICHIERS BINAIRES (ne pas modifier)
+# =============================================================================
+
+[*.{png,jpg,jpeg,gif,ico,svg,woff,woff2,ttf,eot,mp4,mp3,pdf,zip,tar,gz}]
+# Ne rien modifier (fichiers binaires)
+insert_final_newline = false
+trim_trailing_whitespace = false
+
+# =============================================================================
+# 📋 MAKEFILES (TABS OBLIGATOIRES)
+# =============================================================================
+
+[{Makefile,makefile,*.mk}]
+# Makefiles : TABS obligatoires (syntaxe Make)
+indent_style = tab
+tab_width = 4
+
+# =============================================================================
+# 🐍 PYTHON SPÉCIFIQUE
+# =============================================================================
+
+[*.py]
+indent_style = space
+indent_size = 4
+max_line_length = 88  # Black formatter default
+# PEP 8 recommande 79, mais 88 est plus pratique (Black, Ruff)
+
+# =============================================================================
+# 🟨 JAVASCRIPT / TYPESCRIPT SPÉCIFIQUE
+# =============================================================================
+
+[*.{js,jsx,mjs,cjs}]
+indent_style = space
+indent_size = 2
+quote_type = single  # single ou double (Prettier : single)
+
+[*.{ts,tsx}]
+indent_style = space
+indent_size = 2
+quote_type = single
+
+# =============================================================================
+# 🔷 C# SPÉCIFIQUE
+# =============================================================================
+
+[*.cs]
+indent_style = space
+indent_size = 4
+max_line_length = 120
+
+# Conventions C# (Microsoft)
+csharp_new_line_before_open_brace = all
+csharp_new_line_before_else = true
+csharp_new_line_before_catch = true
+csharp_new_line_before_finally = true
+
+# =============================================================================
+# ☕ JAVA SPÉCIFIQUE
+# =============================================================================
+
+[*.java]
+indent_style = space
+indent_size = 4
+max_line_length = 120
+
+# =============================================================================
+# 🦀 RUST SPÉCIFIQUE
+# =============================================================================
+
+[*.rs]
+indent_style = space
+indent_size = 4
+max_line_length = 100  # rustfmt default
+
+# =============================================================================
+# 🐹 GO SPÉCIFIQUE
+# =============================================================================
+
+[*.go]
+# Go : TABS obligatoires (gofmt standard)
+indent_style = tab
+tab_width = 4
+
+# =============================================================================
+# 💎 RUBY SPÉCIFIQUE
+# =============================================================================
+
+[*.rb]
+indent_style = space
+indent_size = 2  # Convention Ruby
+
+# =============================================================================
+# 🐘 PHP SPÉCIFIQUE
+# =============================================================================
+
+[*.php]
+indent_style = space
+indent_size = 4  # PSR-2 standard
+
+# =============================================================================
+# 🦕 SQL
+# =============================================================================
+
+[*.sql]
+indent_style = space
+indent_size = 2
+max_line_length = 120
+
+# =============================================================================
+# 🔧 FICHIERS CONFIGURATION SPÉCIAUX
+# =============================================================================
+
+# .gitignore, .dockerignore : pas d'indentation
+[{.gitignore,.dockerignore,.gitattributes,.editorconfig}]
+indent_style = space
+indent_size = 0
+
+# Docker
+[{Dockerfile,Dockerfile.*,*.dockerfile}]
+indent_style = space
+indent_size = 2
+
+[docker-compose*.{yml,yaml}]
+indent_style = space
+indent_size = 2
+
+# CI/CD
+[.github/workflows/*.{yml,yaml}]
+indent_style = space
+indent_size = 2
+
+[.gitlab-ci.yml]
+indent_style = space
+indent_size = 2
+
+# Terraform
+[*.{tf,tfvars}]
+indent_style = space
+indent_size = 2
+
+# =============================================================================
+# 📝 NOTES ET BONNES PRATIQUES
+# =============================================================================
+#
+# INDENTATION : ESPACES VS TABS
+#   ✅ Espaces : uniformité visuelle, standard web/Python/Ruby
+#   ✅ Tabs : accessibilité (taille ajustable), Go/Makefiles
+#   💡 Choisir selon le langage et rester cohérent
+#
+# FIN DE LIGNE : LF VS CRLF
+#   ✅ LF (Unix) : standard universel, plus compact
+#   ⚠️ CRLF (Windows) : nécessaire pour scripts .bat, .ps1
+#   💡 Git core.autocrlf=true convertit automatiquement sur Windows
+#
+# ENCODAGE
+#   ✅ UTF-8 : support universel des caractères
+#   ❌ ISO-8859-1, Windows-1252 : obsolètes
+#   ❌ UTF-8 BOM : éviter (problèmes avec certains outils Unix)
+#
+# LIGNE VIDE FINALE
+#   ✅ POSIX standard : fichiers texte doivent finir par \n
+#   ✅ Git diff : évite le message "No newline at end of file"
+#   ✅ Outils Unix (cat, grep) : comptent sur cette convention
+#
+# ESPACES TRAILING
+#   ✅ Supprimer : réduit conflits Git, inutiles
+#   ⚠️ Exceptions : Markdown (2 espaces = <br>), YAML (parfois significatif)
+#
+# LONGUEUR DE LIGNE
+#   • PEP 8 (Python) : 79 caractères (docstrings : 72)
+#   • Black (Python) : 88 caractères
+#   • Google Style Guide : 100 caractères
+#   • Standard moderne : 120 caractères
+#   💡 Limite douce (non appliquée par EditorConfig, utiliser linter)
+#
+# PRIORITÉ DES RÈGLES
+#   1. Règles les plus spécifiques (ex: [*.py])
+#   2. Règles génériques (ex: [*])
+#   3. Fichiers .editorconfig dans sous-dossiers surchargent
+#
+# COMPATIBILITÉ GIT
+#   Configurer Git pour normaliser les fins de ligne :
+#     git config --global core.autocrlf true   # Windows
+#     git config --global core.autocrlf input  # Mac/Linux
+#
+# VÉRIFICATION
+#   Certains éditeurs offrent une commande pour formater selon EditorConfig :
+#     VS Code : Format Document (Shift+Alt+F)
+#     IntelliJ : Reformat Code (Ctrl+Alt+L)
+#
+# LIMITES D'EDITORCONFIG
+#   ❌ Ne remplace pas les formatters (Prettier, Black, rustfmt)
+#   ❌ Ne valide pas le code (utiliser linters : ESLint, Pylint)
+#   ❌ Règles limitées (pas de conventions de nommage, etc.)
+#   ✅ Complémentaire : EditorConfig pour base, formatters pour détails
+#
+# INTÉGRATION AVEC FORMATTERS
+#   • Prettier (JS/TS) : respecte EditorConfig automatiquement
+#   • Black (Python) : ignorer line_length (utilise pyproject.toml)
+#   • rustfmt : utilise rustfmt.toml
+#   💡 EditorConfig = base commune, formatters = règles avancées
+#
+# =============================================================================
+#
+# 🔍 DEBUGGING
+#
+# Si EditorConfig ne fonctionne pas :
+#   1. Vérifier que root = true est présent
+#   2. Vérifier l'installation du plugin/support éditeur
+#   3. Recharger l'éditeur après modification .editorconfig
+#   4. Vérifier les logs de l'éditeur (éventuelles erreurs parsing)
+#   5. Tester avec un fichier simple (créer nouveau fichier .js)
+#
+# =============================================================================
+#
+# 📚 RESSOURCES
+#
+# Documentation :
+#   - Site officiel : https://editorconfig.org
+#   - Spécification : https://spec.editorconfig.org
+#   - Propriétés : https://github.com/editorconfig/editorconfig/wiki/EditorConfig-Properties
+#
+# Plugins éditeurs :
+#   - VS Code : https://marketplace.visualstudio.com/items?itemName=EditorConfig.EditorConfig
+#   - Sublime : https://packagecontrol.io/packages/EditorConfig
+#   - Vim : https://github.com/editorconfig/editorconfig-vim
+#   - Atom : https://atom.io/packages/editorconfig
+#
+# Exemples de projets :
+#   - Node.js : https://github.com/nodejs/node/blob/main/.editorconfig
+#   - Django : https://github.com/django/django/blob/main/.editorconfig
+#   - React : https://github.com/facebook/react/blob/main/.editorconfig
+#
+# =============================================================================
+#
+# Version de ce fichier : 1.0
+# Dernière mise à jour : 9 décembre 2025
+# Mainteneur : WyloW2Ricard0
+# Licence : CC0 (Domaine Public) — Adaptez librement
+#
+# =============================================================================

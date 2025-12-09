@@ -1,0 +1,424 @@
+/* ============================================
+   Variables & Base Styles
+   ============================================ */
+:root {
+    --navy-dark: #0a1929;
+    --navy-medium: #112240;
+    --navy-light: #1a2f4a;
+    --accent-yellow: #f4b942;
+    --accent-magenta: #d946a6;
+    --text-primary: #e6e6e6;
+    --text-secondary: #b3b3b3;
+    --shadow: rgba(0, 0, 0, 0.5);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Consolas', 'Courier New', monospace;
+    background: linear-gradient(135deg, var(--navy-dark) 0%, var(--navy-medium) 100%);
+    color: var(--text-primary);
+    line-height: 1.6;
+    min-height: 100vh;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+/* Titres avec Bauhaus 93 */
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Bauhaus 93', 'Impact', sans-serif;
+    font-weight: normal;
+}
+
+/* ============================================
+   Shield & Logo Section
+   ============================================ */
+.shield-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 3rem 0 2rem;
+}
+
+.shield {
+    position: relative;
+    width: 280px;
+    height: 320px;
+    background: linear-gradient(145deg, var(--navy-medium), var(--navy-light));
+    border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    padding: 3rem 2rem;
+    box-shadow: 
+        0 10px 40px var(--shadow),
+        inset 0 -5px 20px rgba(0, 0, 0, 0.3),
+        inset 0 5px 20px rgba(255, 255, 255, 0.05);
+    border: 3px solid rgba(255, 255, 255, 0.1);
+}
+
+.shield::before {
+    content: '';
+    position: absolute;
+    inset: -8px;
+    border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+    background: linear-gradient(145deg, 
+        rgba(255, 255, 255, 0.1), 
+        transparent,
+        rgba(0, 0, 0, 0.2));
+    z-index: -1;
+}
+
+/* Books Row */
+.books-row {
+    display: flex;
+    gap: 1rem;
+    align-items: flex-end;
+}
+
+.book {
+    width: 50px;
+    border-radius: 4px 4px 0 0;
+    box-shadow: 
+        0 4px 8px var(--shadow),
+        inset 0 -2px 5px rgba(0, 0, 0, 0.3);
+    position: relative;
+}
+
+.book::before {
+    content: '';
+    position: absolute;
+    top: 8px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 70%;
+    height: 3px;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 2px;
+}
+
+.book-yellow-1 {
+    height: 80px;
+    background: linear-gradient(135deg, #f7c855, var(--accent-yellow));
+}
+
+.book-yellow-2 {
+    height: 100px;
+    background: linear-gradient(135deg, var(--accent-yellow), #f0a500);
+}
+
+.book-magenta {
+    height: 85px;
+    background: linear-gradient(135deg, #e85cb5, var(--accent-magenta));
+}
+
+.book-magenta::after {
+    content: '';
+    position: absolute;
+    top: -5px;
+    right: 5px;
+    width: 25px;
+    height: 30px;
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 2px;
+    transform: rotate(-5deg);
+}
+
+/* Open Book */
+.open-book {
+    width: 120px;
+    height: 60px;
+    background: linear-gradient(to right, 
+        #f5f1e8 0%, 
+        #e8e4dc 48%, 
+        #d4d0c8 50%, 
+        #e8e4dc 52%, 
+        #f5f1e8 100%);
+    border-radius: 8px;
+    box-shadow: 
+        0 6px 12px var(--shadow),
+        inset 0 -2px 5px rgba(0, 0, 0, 0.2);
+    position: relative;
+}
+
+.open-book::before,
+.open-book::after {
+    content: '';
+    position: absolute;
+    top: 10px;
+    width: 2px;
+    height: 40px;
+    background: rgba(0, 0, 0, 0.1);
+}
+
+.open-book::before {
+    left: 20%;
+}
+
+.open-book::after {
+    right: 20%;
+}
+
+/* ============================================
+   Motto
+   ============================================ */
+.motto {
+    text-align: center;
+    font-size: clamp(2rem, 5vw, 3rem);
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    margin: 2rem 0 3rem;
+    color: #f5f1e8;
+    text-shadow: 
+        0 2px 4px var(--shadow),
+        0 0 20px rgba(244, 185, 66, 0.3);
+    line-height: 1.2;
+}
+
+/* ============================================
+   Content Sections
+   ============================================ */
+.content {
+    background: rgba(17, 34, 64, 0.6);
+    border-radius: 16px;
+    padding: 3rem;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 8px 32px var(--shadow);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+section {
+    margin-bottom: 4rem;
+}
+
+section:last-child {
+    margin-bottom: 0;
+}
+
+h2 {
+    font-size: clamp(1.75rem, 4vw, 2.25rem);
+    margin-bottom: 1.5rem;
+    color: var(--accent-yellow);
+    text-shadow: 0 2px 4px var(--shadow);
+}
+
+/* ============================================
+   Navigation Links
+   ============================================ */
+.links nav {
+    display: flex;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.nav-link {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 1rem 2rem;
+    background: linear-gradient(135deg, var(--navy-light), var(--navy-medium));
+    border-radius: 12px;
+    text-decoration: none;
+    color: var(--text-primary);
+    font-weight: 600;
+    font-size: 1.1rem;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 12px var(--shadow);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.nav-link:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(244, 185, 66, 0.4);
+    border-color: var(--accent-yellow);
+}
+
+.icon {
+    font-size: 1.5rem;
+}
+
+/* ============================================
+   Projects Section
+   ============================================ */
+.project-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.project-card {
+    background: linear-gradient(135deg, var(--navy-medium), var(--navy-light));
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px var(--shadow);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: all 0.3s ease;
+}
+
+.project-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 24px rgba(217, 70, 166, 0.3);
+    border-color: var(--accent-magenta);
+}
+
+.project-card h3 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    color: var(--accent-magenta);
+}
+
+.project-card p {
+    color: var(--text-secondary);
+    margin-bottom: 1.5rem;
+}
+
+.btn {
+    display: inline-block;
+    padding: 0.75rem 1.5rem;
+    background: linear-gradient(135deg, var(--accent-yellow), #f0a500);
+    color: var(--navy-dark);
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 8px var(--shadow);
+}
+
+.btn:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 16px rgba(244, 185, 66, 0.5);
+}
+
+/* ============================================
+   Notes & Contact
+   ============================================ */
+.coming-soon {
+    color: var(--text-secondary);
+    font-style: italic;
+    padding: 2rem;
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 8px;
+    text-align: center;
+}
+
+.contact-info {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    font-size: 1.1rem;
+}
+
+.contact-info a {
+    color: var(--accent-yellow);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.contact-info a:hover {
+    color: var(--accent-magenta);
+    text-decoration: underline;
+}
+
+/* ============================================
+   Footer
+   ============================================ */
+footer {
+    margin-top: 4rem;
+    padding: 2rem;
+    text-align: center;
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+footer a {
+    color: var(--accent-yellow);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+footer a:hover {
+    color: var(--accent-magenta);
+}
+
+/* ============================================
+   Responsive Design
+   ============================================ */
+@media (max-width: 768px) {
+    .container {
+        padding: 1rem;
+    }
+
+    .content {
+        padding: 1.5rem;
+    }
+
+    .shield {
+        width: 220px;
+        height: 260px;
+        gap: 1.5rem;
+    }
+
+    .book {
+        width: 40px;
+    }
+
+    .book-yellow-1 {
+        height: 65px;
+    }
+
+    .book-yellow-2 {
+        height: 80px;
+    }
+
+    .book-magenta {
+        height: 70px;
+    }
+
+    .open-book {
+        width: 100px;
+        height: 50px;
+    }
+
+    .motto {
+        font-size: 1.75rem;
+    }
+
+    .links nav {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .nav-link {
+        justify-content: center;
+    }
+
+    .project-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+}
