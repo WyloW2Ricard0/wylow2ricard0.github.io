@@ -1,0 +1,4 @@
+# GitHub Pages - Force UTF-8
+*.html linguist-language=HTML
+*.css linguist-language=CSS
+*.js linguist-language=JavaScript

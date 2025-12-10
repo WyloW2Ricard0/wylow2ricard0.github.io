@@ -1,0 +1,74 @@
+﻿<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Explorateur du dépôt Enseignement - WyloW2Ricard0">
+    <meta name="author" content="WyloW2Ricard0">
+    <title>Explorateur - Enseignement | WyloW2Ricard0</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/explorer.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css">
+</head>
+<body class="explorer-page">
+    <header class="explorer-header">
+        <div class="header-content">
+            <a href="index.html" class="back-link">← Retour</a>
+            <div class="header-title">
+                <h1>📚 Enseignement</h1>
+                <div class="repo-meta" id="repo-meta">Chargement...</div>
+            </div>
+        </div>
+    </header>
+
+    <main class="explorer-layout">
+        <!-- Left Column: File Explorer -->
+        <aside class="explorer-sidebar">
+            <div class="sidebar-header">
+                <h2>Explorateur</h2>
+                <button class="btn-refresh" id="btn-refresh" title="Rafraîchir">🔄</button>
+            </div>
+            <nav class="breadcrumb" id="breadcrumb">
+                <button class="breadcrumb-item" data-path="">🏠 Racine</button>
+            </nav>
+            <div class="file-tree" id="file-tree">
+                <div class="loading">Chargement du dépôt...</div>
+            </div>
+        </aside>
+
+        <!-- Right Column: Content Viewer -->
+        <section class="content-viewer">
+            <div class="viewer-header">
+                <div class="file-info">
+                    <span class="file-icon" id="file-icon">📄</span>
+                    <span class="file-name" id="file-name">Sélectionnez un fichier</span>
+                </div>
+                <button class="btn-download" id="btn-edit" style="display: none;">✏️ Modifier sur GitHub</button>
+            </div>
+            <div class="viewer-body" id="viewer-body">
+                <div class="welcome-message">
+                    <h2>Bienvenue dans l'explorateur de dépôt</h2>
+                    <p>Utilisez la colonne de gauche pour naviguer dans les dossiers et fichiers du dépôt <strong>Enseignement</strong>.</p>
+                    <ul>
+                        <li>Cliquez sur un dossier 📁 pour explorer son contenu</li>
+                        <li>Cliquez sur un fichier 📄 pour le lire ici</li>
+                        <li>Utilisez le bouton "Modifier sur GitHub" pour proposer des changements</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-javascript.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-python.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-powershell.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-bash.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-json.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-yaml.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-markup.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-css.min.js"></script>
+    <script src="js/explorer.js"></script>
+</body>
+</html>
