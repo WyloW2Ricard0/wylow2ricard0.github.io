@@ -23,6 +23,14 @@
     </header>
 
     <main class="explorer-layout">
+        <div class="auth-guard" id="auth-guard">
+            <div>
+                <strong>Connexion requise</strong>
+                <p style="color: var(--text-secondary); margin-top: 0.25rem;">Connectez-vous pour ouvrir l'explorateur.</p>
+            </div>
+            <button class="btn-auth" id="guard-login">Se connecter</button>
+        </div>
+
         <!-- Left Column: File Explorer -->
         <aside class="explorer-sidebar">
             <div class="sidebar-header">
@@ -69,6 +77,8 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-yaml.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-markup.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-css.min.js"></script>
+    <script src="js/supabase-keys.js"></script>
+    <script type="module" src="js/auth.js"></script>
     <script src="js/explorer.js"></script>
 </body>
 </html>

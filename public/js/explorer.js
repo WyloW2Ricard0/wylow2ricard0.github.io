@@ -4,9 +4,12 @@ document.addEventListener('DOMContentLoaded', () => {
     const REPO = 'Enseignement';
     const API_BASE = `https://api.github.com/repos/${OWNER}/${REPO}`;
     let defaultBranch = 'master';
+    let booted = false;
     
     let currentPath = '';
     let currentFileData = null;
+
+    const requireAuth = window.__supabaseAuth?.requireAuth || (() => true);
     
     // DOM Elements
     const repoMeta = document.getElementById('repo-meta');
@@ -250,6 +253,20 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // Initialize
-    loadRepoMeta();
-    loadContents('');
+    const boot = () => {
+        if (booted) return;
+        booted = true;
+        loadRepoMeta();
+        loadContents('');
+    };
+
+    if (requireAuth()) {
+        boot();
+    }
+
+    window.addEventListener('supabase-auth-changed', (evt) => {
+        if (evt.detail?.session) {
+            boot();
+        }
+    });
 });

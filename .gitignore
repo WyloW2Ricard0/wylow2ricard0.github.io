@@ -221,6 +221,10 @@ out/
 .env.*.local
 *.env
 
+# Clés Supabase (NE JAMAIS COMMITER)
+public/js/supabase-keys.js
+/public/js/supabase-keys.js
+
 # Clés privées SSH / GPG
 *.pem
 *.key

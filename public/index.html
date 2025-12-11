@@ -11,6 +11,14 @@
 </head>
 <body>
     <div class="container">
+        <div class="auth-bar" id="auth-bar" data-state="anon">
+            <div class="auth-status" id="auth-status" data-tone="warning">Connexion requise pour accéder aux projets.</div>
+            <div class="auth-actions">
+                <button class="btn-auth" id="btn-auth-open">Se connecter</button>
+                <button class="btn-auth ghost" id="btn-auth-logout" style="display: none;">Se déconnecter</button>
+            </div>
+        </div>
+
         <!-- Logo Section -->
         <div class="shield-container">
             <img src="assets/logo_SP_contour_20250831.png" alt="Structurare ad Proficere Logo" class="logo">
@@ -57,7 +65,7 @@
                     <article class="project-card">
                         <h3>Enseignement</h3>
                         <p>Ressources pédagogiques pour Git, PowerShell et bonnes pratiques de développement.</p>
-                        <a href="enseignement.html" class="btn">Explorer le dépôt →</a>
+                        <a href="enseignement.html" class="btn" data-requires-auth="true">Explorer le dépôt →</a>
                     </article>
                     <article class="project-card">
                         <h3>À venir</h3>
@@ -95,6 +103,28 @@
         </footer>
     </div>
 
+    <div class="auth-modal" id="auth-modal">
+        <div class="panel">
+            <button class="close-btn" id="auth-close" aria-label="Fermer">×</button>
+            <h3>Connexion Supabase</h3>
+            <form id="auth-form">
+                <label for="auth-email">Email</label>
+                <input type="email" id="auth-email" name="email" required placeholder="vous@example.com">
+
+                <label for="auth-password">Mot de passe</label>
+                <input type="password" id="auth-password" name="password" required placeholder="Mot de passe">
+
+                <div class="auth-actions" style="margin-top: 0.75rem;">
+                    <button type="submit" class="btn-auth">Se connecter</button>
+                    <button type="button" class="btn-auth ghost" id="auth-signup">Créer un compte</button>
+                </div>
+            </form>
+            <p class="auth-message" id="auth-message">Connectez-vous avec votre compte.</p>
+        </div>
+    </div>
+
+    <script src="js/supabase-keys.js"></script>
+    <script type="module" src="js/auth.js"></script>
     <script src="js/main.js"></script>
 </body>
 </html>
