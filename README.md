@@ -1,96 +1,154 @@
-# Site personnel — WyloW2Ricard0
+# Portfolio Web — WyloW2Ricard0
 
-Dépôt de mon site web personnel hébergé sur GitHub Pages. Vous y trouverez les sources statiques, la configuration de prévisualisation locale et la documentation de maintenance.
+Application React + TypeScript + Material-UI (MUI) pour présenter mes projets et courses, avec authentification Supabase et base de données.
 
-## Lien
+## 🔗 Lien
 
 - Site public : https://wylow2ricard0.github.io
 
-## Aperçu
+## 📋 Aperçu
 
-- Objectif : présenter mon parcours, mes projets et partager quelques notes techniques.
-- Pile : HTML/CSS/JS statique (déployé via GitHub Pages), prévisualisation locale via Docker Compose.
-- Cible : navigation rapide, contenu léger, sans dépendances côté serveur.
+- **Objectif** : présenter mes applications, partager mes courses, et gérer les accès utilisateurs via authentification.
+- **Stack** : React 18 + TypeScript + Material-UI v6 + React Router v6 + Supabase (Auth + DB)
+- **Hébergement** : GitHub Pages (déploiement automatisé)
+- **État global** : Context API pour l'authentification et les données utilisateur
+- **Responsive** : Design adapté mobile/tablette/desktop avec MUI
 
-## Démarrage rapide
+## 🚀 Démarrage rapide
 
-### Sans Docker
+### Prérequis
+- Node.js v16+ + npm
+- Compte Supabase (gratuit)
 
-1. Cloner le dépôt :
-    ```powershell
-    git clone https://github.com/WyloW2Ricard0/wylow2ricard0.github.io.git
-    cd wylow2ricard0.github.io
-    ```
-2. Placer vos fichiers statiques dans le dossier `public/` (créez-le si besoin) puis servir localement :
-    ```powershell
-    cd public
-    python -m http.server 8000
-    ```
-3. Ouvrir http://localhost:8000.
 
-### Avec Docker (recommandé pour prévisualiser)
+### Installation 💻
 
-1. Vérifier Docker Desktop installé.
-2. Depuis la racine :
-    ```powershell
-    cd config
-    docker compose up --build
-    ```
-3. Ouvrir http://localhost:8080 pour voir le rendu de `public/`.
+```bash
+# Télécharge Node.js depuis
+https://nodejs.org/en/download/
 
-## Structure du dépôt
+# 1. Clone le repository
+git clone https://github.com/WyloW2Ricard0/wylow2ricard0.github.io.git
+cd wylow2ricard0.github.io
 
-```
-.
-├── README.md                # Présent fichier
-├── CHANGLOG.md              # Historique des versions
-├── CODE_OF_CONDUCT.md       # Règles de participation
-├── CONTRIBUTING.md          # Modalités de contribution
-├── LICENSE.md               # Licence du contenu
-├── ROADMAP.md               # Cap planifié
-├── config/                  # Outils de build/preview (Docker, deps optionnelles)
-└── data/                    # Données ou contenus structurés (images, json, brouillons)
+# 2. Installe les dépendances
+npm install --legacy-peer-deps
+
+# Si tu veux corriger les vulnérabilités (optionnel):
+npm audit fix --force
+
+# 3. Crée un fichier .env à la racine du projet
+# Voir la section "Configuration Supabase" ci-dessous
+
+# 4. Démarre le serveur de développement
+npm start
+
+# Si l'exécution de scripts PowerShell est désactivée
+Set-ExecutionPolicy -Scope CurrentUser -ExecutionPolicy RemoteSigned
 ```
 
-Notes :
-- `config/docker-compose.yml` sert à prévisualiser le site statique avec nginx.
-- `config/requirements.txt` reste optionnel pour des scripts de génération (non requis pour afficher le site).
-- `data/` peut accueillir images optimisées, json/yaml ou brouillons markdown avant publication.
+L'application démarre automatiquement sur http://localhost:3000 avec **hot reload** !
 
-## Déploiement
+**Notes:**
 
-- La branche `main` est publiée automatiquement par GitHub Pages.
-- Vérifier que les fichiers destinés au web résident dans `public/` (ou à la racine si vous préférez) avant de pousser.
-- Pour tester les liens cassés, utilisez un vérificateur local (ex. `linkchecker`) avant publication.
+- 🔄 Les changements dans `src/` se reflètent instantanément
+- 🛑 Pour arrêter: `Ctrl + C` dans le terminal
+- 📦 Pour installer les dépendances manquantes: `npm install`
 
-## Contribution
+## 🏗️ Architecture
+
+```text
+src/
+├── components/ # Composants réutilisables (atoms, molecules, organisms)
+├── pages/      # Pages principales (Home, Dashboard, Courses, etc.)
+├── libs/       # Clients et utilitaires (Supabase)
+├── sections/   #
+├── hooks/      # Hooks personnalisés
+```
+
+Voir [ARCHITECTURE.md](ARCHITECTURE.md) pour les détails complets.
+
+## 📝 Configuration
+
+### Supabase Setup
+
+1. Créer un compte sur https://supabase.com
+2. Créer un nouveau projet
+3. Copier `SUPABASE_URL` et `SUPABASE_ANON_KEY`
+4. Ajouter dans `.env` :
+   ```text
+   REACT_APP_SUPABASE_URL=https://votre-projet.supabase.co
+   REACT_APP_SUPABASE_ANON_KEY=votre-clé-anon
+   ```
+
+### Tables Supabase
+
+Exécuter dans l'éditeur SQL Supabase :
+
+```sql
+-- Courses table
+CREATE TABLE courses (
+  id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+  title VARCHAR(255) NOT NULL,
+  description TEXT,
+  content TEXT,
+  created_at TIMESTAMP DEFAULT NOW(),
+  updated_at TIMESTAMP DEFAULT NOW()
+);
+
+-- Applications table
+CREATE TABLE applications (
+  id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+  title VARCHAR(255) NOT NULL,
+  description TEXT,
+  url VARCHAR(512) NOT NULL,
+  created_at TIMESTAMP DEFAULT NOW()
+);
+```
+
+## 📚 Fonctionnalités
+
+- ✅ Authentification Supabase (Sign In, Sign Up)
+- ✅ Routes protégées pour utilisateurs authentifiés
+- ✅ Gestion d'état avec Context API
+- ✅ Design responsive avec Material-UI
+- ✅ TypeScript pour la sécurité des types
+- ✅ Intégration Supabase (auth + DB)
+
+## 🔄 Structure des Pages
+
+| URL | Accès | Description |
+|-----|-------|-------------|
+| `/` | Public | Accueil avec présentation |
+| `/sign-in` | Public | Page de connexion |
+| `/sign-up` | Public | Page d'inscription |
+| `/dashboard` | Authentifié | Tableau de bord personnel |
+| `/courses` | Authentifié | Mes courses |
+| `/applications` | Authentifié | Mes applications |
+
+## 📖 Documentation
+
+- [SETUP.md](SETUP.md) - Guide complet d'installation et configuration
+- [ARCHITECTURE.md](ARCHITECTURE.md) - Architecture détaillée du projet
+
+## 🤝 Contribution
 
 - Le site reste personnel ; les suggestions via Issues sont bienvenues.
-- Les Pull Requests sont acceptées au cas par cas (corrections, liens morts, fautes).
+- Les Pull Requests sont acceptées au cas par cas (corrections, améliorations).
 - Merci de rester conforme au [Code de conduite](CODE_OF_CONDUCT.md).
 
-## Licence
+## 📄 Licence
 
-Contenu sous licence **Attribution-NonCommercial-ShareAlike 4.0 International** — voir `LICENSE.md`.
+Contenu sous licence **Attribution-NonCommercial-ShareAlike 4.0 International** — voir [LICENSE.md](LICENSE.md).
 
-## Contact
+## 📞 Contact
 
-- GitHub : https://github.com/WyloW2Ricard0
-- Email : wrichard@live.fr
-- **Python** : 3.8+ (pour notebooks)
+- GitHub: [@WyloW2Ricard0](https://github.com/WyloW2Ricard0)
+- Email: wrichard@live.fr
 
 ---
 
-<div align="center">
-
-**📚 Bon apprentissage ! 🚀**
-
 Fait avec ❤️ par [WyloW2Ricard0](https://github.com/WyloW2Ricard0)
-
-[![GitHub](https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white)](https://github.com/WyloW2Ricard0/Enseignement)
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=for-the-badge)](https://opensource.org/licenses/MIT)
-
-</div>
 
 <!--
 FIN DU README

@@ -1,130 +1,24 @@
-﻿<!DOCTYPE html>
-<html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Site personnel de WyloW2Ricard0 - Développeur et passionné de technologie">
-    <meta name="author" content="WyloW2Ricard0">
-    <title>Structurare ad Proficere</title>
-    <link rel="stylesheet" href="css/style.css">
-</head>
-<body>
-    <div class="container">
-        <div class="auth-bar" id="auth-bar" data-state="anon">
-            <div class="auth-status" id="auth-status" data-tone="warning">Connexion requise pour accéder aux projets.</div>
-            <div class="auth-actions">
-                <button class="btn-auth" id="btn-auth-open">Se connecter</button>
-                <button class="btn-auth ghost" id="btn-auth-logout" style="display: none;">Se déconnecter</button>
-            </div>
-        </div>
-
-        <!-- Logo Section -->
-        <div class="shield-container">
-            <img src="assets/logo_SP_contour_20250831.png" alt="Structurare ad Proficere Logo" class="logo">
-        </div>
-
-        <!-- Motto -->
-        <h1 class="motto">STRUCTURARE<br>AD PROFICERE</h1>
-
-        <!-- Main Content -->
-        <main class="content">
-            <section class="intro">
-                <div>
-                    <img src="./assets/perso_kerbal.png" alt="Personnage Kerbal" class="profile-image">
-                </div>
-                <div>
-                    <h2>Bienvenue</h2>
-                    <p>
-                        Développeur passionné par l'apprentissage continu et la structuration de projets. 
-                        Ce site rassemble mes projets, notes techniques et réflexions sur le développement logiciel.
-                    </p>
-                </div>
-            </section>
-
-            <section class="links">
-                <nav>
-                    <a href="#projets" class="nav-link">
-                        <span class="icon">📚</span>
-                        <span>Projets</span>
-                    </a>
-                    <a href="#notes" class="nav-link">
-                        <span class="icon">✍️</span>
-                        <span>Notes</span>
-                    </a>
-                    <a href="#contact" class="nav-link">
-                        <span class="icon">✉️</span>
-                        <span>Contact</span>
-                    </a>
-                </nav>
-            </section>
-
-            <section id="projets" class="projects">
-                <h2>Projets récents</h2>
-                <div class="project-grid">
-                    <article class="project-card">
-                        <h3>Enseignement</h3>
-                        <p>Ressources pédagogiques pour Git, PowerShell et bonnes pratiques de développement.</p>
-                        <a href="enseignement.html" class="btn" data-requires-auth="true">Explorer le dépôt →</a>
-                    </article>
-                    <article class="project-card">
-                        <h3>À venir</h3>
-                        <p>D'autres projets seront ajoutés prochainement. Restez à l'écoute !</p>
-                    </article>
-                </div>
-            </section>
-
-            <section id="notes" class="notes">
-                <h2>Notes techniques</h2>
-                <p class="coming-soon">Section en construction. Articles à venir sur Docker, Git, et l'architecture logicielle.</p>
-            </section>
-
-            <section id="contact" class="contact">
-                <h2>Contact</h2>
-                <div class="contact-info">
-                    <p>
-                        <strong>GitHub:</strong> 
-                        <a href="https://github.com/WyloW2Ricard0" target="_blank">@WyloW2Ricard0</a>
-                    </p>
-                    <p>
-                        <strong>Email:</strong> 
-                        <a href="mailto:wrichard@live.fr">wrichard@live.fr</a>
-                    </p>
-                </div>
-            </section>
-        </main>
-
-        <!-- Footer -->
-        <footer>
-            <p>&copy; 2025 WyloW2Ricard0 | 
-                <a href="https://github.com/WyloW2Ricard0/wylow2ricard0.github.io" target="_blank">Code source</a> | 
-                <a href="LICENSE.md">Licence</a>
-            </p>
-        </footer>
-    </div>
-
-    <div class="auth-modal" id="auth-modal">
-        <div class="panel">
-            <button class="close-btn" id="auth-close" aria-label="Fermer">×</button>
-            <h3>Connexion Supabase</h3>
-            <form id="auth-form">
-                <label for="auth-email">Email</label>
-                <input type="email" id="auth-email" name="email" required placeholder="vous@example.com">
-
-                <label for="auth-password">Mot de passe</label>
-                <input type="password" id="auth-password" name="password" required placeholder="Mot de passe">
-
-                <div class="auth-actions" style="margin-top: 0.75rem;">
-                    <button type="submit" class="btn-auth">Se connecter</button>
-                    <button type="button" class="btn-auth ghost" id="auth-signup">Créer un compte</button>
-                </div>
-            </form>
-            <p class="auth-message" id="auth-message">Connectez-vous avec votre compte.</p>
-        </div>
-    </div>
-
-    <script src="js/supabase-keys.js"></script>
-    <script type="module" src="js/auth.js"></script>
-    <script src="js/main.js"></script>
-</body>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#000000" />
+    <meta
+      name="description"
+      content="Professional portfolio website showcasing applications and courses"
+    />
+    <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
+    <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
+    <!-- Google Fonts Import -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Righteous&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <title>Wylow2Ricard0 - Portfolio</title>
+  </head>
+  <body>
+    <noscript>You need to enable JavaScript to run this app.</noscript>
+    <div id="root"></div>
+  </body>
 </html>
