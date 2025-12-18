@@ -1,3 +1,15 @@
+---
+collected: true
+title: "Grille de Layout Responsive - Guide Pratique"
+date: "2024-12-18"
+category: "Design"
+excerpt: "La grille de layout responsive de Material Design adapte automatiquement votre interface à la taille de l'écran pour une expérience cohérente sur tous les appareils."
+author:
+  name: "Wilfried Richard"
+  role: "Auteur"
+  avatar: "/images/avatar-wilfried.png"
+image: "/images/blog1.jpg"
+---
 # 📱 Grille de Layout Responsive - Guide Pratique
 
 > **Source officielle** : [Material Design - Responsive Layout Grid](https://m2.material.io/design/layout/responsive-layout-grid.html)
@@ -16,7 +28,7 @@ Les colonnes sont les zones où le contenu est placé. Leur largeur est définie
 
 **Nombre de colonnes selon le breakpoint** :
 - 📱 **Mobile (360 dp)** : 4 colonnes
-- 📱 **Tablette (600 dp)** : 8 colonnes  
+- 📱 **Tablette (600 dp)** : 8 colonnes
 - 💻 **Laptop (905 dp+)** : 12 colonnes
 - 🖥️ **Desktop (1240 dp+)** : 12 colonnes
 
@@ -175,11 +187,11 @@ export default function ResponsiveLayout() {
         <Grid item xs={12} sm={6} md={4}>
           <Paper sx={{ p: 2 }}>Colonne 1</Paper>
         </Grid>
-        
+
         <Grid item xs={12} sm={6} md={4}>
           <Paper sx={{ p: 2 }}>Colonne 2</Paper>
         </Grid>
-        
+
         <Grid item xs={12} sm={6} md={4}>
           <Paper sx={{ p: 2 }}>Colonne 3</Paper>
         </Grid>
@@ -296,5 +308,5 @@ Desktop : 3-4 colonnes avec widgets
 
 ---
 
-**Créé le** : 13 décembre 2025  
+**Créé le** : 13 décembre 2025
 **Basé sur** : Material Design v2

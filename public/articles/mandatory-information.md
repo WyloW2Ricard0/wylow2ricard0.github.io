@@ -1,3 +1,15 @@
+---
+collected: true
+title: "Mentions obligatoires sur un site internet"
+date: "2024-12-18"
+category: "Légal"
+excerpt: "Découvrez les mentions légales et informations obligatoires à afficher sur tout site internet professionnel en France."
+author:
+  name: "Wilfried Richard"
+  role: "Auteur"
+  avatar: "/images/avatar-wilfried.png"
+image: "/images/blog4.jpg"
+---
 # Quelles sont les mentions obligatoires sur un site internet ?
 
 Vous pourrez choisir de consulter un avocat si vous avez besoin d'aide.

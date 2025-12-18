@@ -1,3 +1,15 @@
+---
+collected: true
+title: "W3C (World Wide Web Consortium) - Guide Pratique"
+date: "2024-12-18"
+category: "Web"
+excerpt: "Le W3C développe des standards pour garantir un web ouvert, accessible et inclusif. Découvrez son rôle et son fonctionnement."
+author:
+  name: "Wilfried Richard"
+  role: "Auteur"
+  avatar: "/images/avatar-wilfried.png"
+image: "/images/blog2.jpg"
+---
 # 🌐 W3C (World Wide Web Consortium) - Guide Pratique
 
 > **Site officiel** : https://www.w3.org/
@@ -327,7 +339,7 @@ https://jigsaw.w3.org/css-validator/
 </head>
 <body>
   <a href="#main">Aller au contenu principal</a>
-  
+
   <main id="main">
     <h1>Titre Principal</h1>
     <p>Contenu structuré sémantiquement...</p>
@@ -341,7 +353,7 @@ https://jigsaw.w3.org/css-validator/
 <form>
   <label for="email">Email :</label>
   <input id="email" type="email" required aria-required="true">
-  
+
   <button type="submit" aria-label="Envoyer le formulaire">
     Envoyer
   </button>
@@ -432,12 +444,12 @@ Recommandé d'apprendre dans cet ordre :
     <h1>Titre de l'article</h1>
     <p>Publié le <time datetime="2025-12-13">13 décembre 2025</time></p>
   </header>
-  
+
   <section>
     <h2>Introduction</h2>
     <p>Contenu...</p>
   </section>
-  
+
   <section>
     <h2>Contenu principal</h2>
     <figure>
@@ -445,7 +457,7 @@ Recommandé d'apprendre dans cet ordre :
       <figcaption>Légende</figcaption>
     </figure>
   </section>
-  
+
   <footer>
     <p>Auteur : <span itemprop="author">Jean Dupont</span></p>
   </footer>
@@ -491,33 +503,33 @@ Recommandé d'apprendre dans cet ordre :
 ```html
 <form aria-labelledby="form-title">
   <h2 id="form-title">Formulaire de Contact</h2>
-  
+
   <fieldset>
     <legend>Informations Personnelles</legend>
-    
+
     <div class="form-group">
       <label for="name">Nom :</label>
-      <input 
-        id="name" 
-        type="text" 
-        required 
+      <input
+        id="name"
+        type="text"
+        required
         aria-required="true"
         aria-describedby="name-help"
       >
       <small id="name-help">Votre nom complet</small>
     </div>
-    
+
     <div class="form-group">
       <label for="message">Message :</label>
-      <textarea 
-        id="message" 
+      <textarea
+        id="message"
         required
         aria-required="true"
         minlength="10"
       ></textarea>
     </div>
   </fieldset>
-  
+
   <button type="submit" aria-label="Envoyer votre message">
     Envoyer
   </button>
@@ -666,8 +678,8 @@ Recommandé d'apprendre dans cet ordre :
 
 ---
 
-**Créé le** : 13 décembre 2025  
-**Basé sur** : W3C Official Documentation (https://www.w3.org/)  
+**Créé le** : 13 décembre 2025
+**Basé sur** : W3C Official Documentation (https://www.w3.org/)
 **Dernière mise à jour** : 2024 (30ème anniversaire W3C)
 
 ---
