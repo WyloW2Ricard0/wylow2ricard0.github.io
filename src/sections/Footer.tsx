@@ -72,22 +72,12 @@ export default function Footer() {
               Restons en Contact !
             </Typography>
             <InputLabel htmlFor="email-newsletter">Subscribe for updates. No spams ever!</InputLabel>
-            <Stack direction="row" spacing={1} useFlexGap>
+            <Stack direction="row" useFlexGap>
               <TextField
                 id="email-newsletter"
-                hiddenLabel
-                size="small"
-                variant="outlined"
-                fullWidth
-                aria-label="Enter your email address"
-                placeholder="Your email address"
-                slotProps={{
-                  htmlInput: {
-                    autoComplete: 'off',
-                    'aria-label': 'Enter your email address',
-                  },
-                }}
-                sx={{ width: '250px' }}
+                type="email"
+                placeholder="Enter your email"
+                autoComplete="email"
               />
               <Button
                 variant="contained"
@@ -100,26 +90,42 @@ export default function Footer() {
             </Stack>
           </Box>
         </Box>
-        <Box
-          sx={{
-            display: { xs: 'none', sm: 'flex' },
-            flexDirection: 'column',
-          }}
-        >
-          <Typography variant="body1">
-            Legal
-          </Typography>
-          <Link variant="body2" href="/privacy">
-            Privacy
-          </Link>
-          <Link  variant="body2" href="/terms">
-            T&Cs
-          </Link>
-          <Link variant="body2" href="#contact">
-            Contact
-          </Link>
+            <Box
+                sx={{
+                    display: { xs: 'none', sm: 'flex' },
+                    flexDirection: 'column',
+                }}
+            >
+                <Typography variant="body1">
+                    Explorer
+                </Typography>
+                <Link variant="body2" href="/">
+                    Accueil
+                </Link>
+                <Link  variant="body2" href="/blog">
+                    Blog
+                </Link>
+            </Box>
+            <Box
+                sx={{
+                    display: { xs: 'none', sm: 'flex' },
+                    flexDirection: 'column',
+                }}
+            >
+                <Typography variant="body1">
+                    Legal
+                </Typography>
+                <Link variant="body2" href="/privacy">
+                    Privacy
+                </Link>
+                <Link  variant="body2" href="/terms">
+                    T&Cs
+                </Link>
+                <Link variant="body2" href="#contact">
+                    Contact
+                </Link>
+            </Box>
         </Box>
-      </Box>
       <Box
         sx={{
           display: 'flex',

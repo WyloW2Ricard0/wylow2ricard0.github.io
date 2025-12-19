@@ -7,7 +7,7 @@ excerpt: "Un guide complet pour choisir le bon composant de layout Material-UI s
 author:
   name: "Wilfried Richard"
   role: "Auteur"
-  avatar: "/images/avatar-wilfried.png"
+  avatar: "public/images/perso_kerbal.png"
 image: "/images/blog3.jpg"
 ---
 # Composants de Layout Material-UI : Grid, Box, Stack, Container

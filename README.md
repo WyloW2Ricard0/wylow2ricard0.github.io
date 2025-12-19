@@ -35,7 +35,7 @@ cd wylow2ricard0.github.io
 npm install --legacy-peer-deps
 
 # Si tu veux corriger les vulnérabilités (optionnel):
-npm audit fix --force
+npm audit fix
 
 # 3. Crée un fichier .env à la racine du projet
 # Voir la section "Configuration Supabase" ci-dessous

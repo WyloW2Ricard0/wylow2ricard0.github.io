@@ -2,7 +2,6 @@
 import Container from '@mui/material/Container';
 import Typography from '@mui/material/Typography';
 import Link from '@mui/material/Link';
-import { Key } from '@mui/icons-material';
 
 // Liste exhaustive des finalités possibles de collecte et traitement des données personnelles
 export const purposes: {
@@ -107,8 +106,11 @@ export const collectedData: { label: string; key: string; collected: boolean; de
     { label: 'Consentements', key: 'consents', collected: true },
 ];
 
-export const thirdParties: { label: string; key: string; collected: boolean; description?: string; name: string; role: string; address?: string }[] = [
-      { label: 'Hébergeur', key: '', collected: false, description: '', name: '[Nom de l’hébergeur]', role: 'Hébergement du site', address: '[Adresse de l’hébergeur]' },
+export const thirdParties: { label: string; key: string; collected: boolean; description?: string; name: string; address?: string }[] = [
+      { label: 'Hébergeur du site', key: 'heberger-site', collected: true, description: 'Affichage', name: 'Github', address: '' },
+      { label: 'Hébergeur code', key: 'heberger-code', collected: true, description: '', name: 'Github', address: '' },
+      { label: 'Stockage', key: 'stockage', collected: true, description: 'Authentification et base de données', name: 'Supabase', address: '' },
+      { label: 'API de contact et mail', key: 'api-contact-mail', collected: true, description: 'API de contact et mail', name: 'Azure', address: '' },
 ];
 
 interface PrivacyProps {
@@ -307,7 +309,7 @@ export default function Privacy(props: Partial<PrivacyProps>) {
                     <ul>
                         {thirdParties.filter(item => item.collected).map((partner, index) => (
                             <li key={index}>
-                                <b>{partner.name}</b> - {partner.role}{partner.address ? ` - ${partner.address}` : ''}
+                                <b>{partner.name}</b> - {partner.label}{partner.address ? ` - ${partner.address}` : ''}
                             </li>
                         ))}
                     </ul>

@@ -15,7 +15,7 @@ const Home: React.FC = () => {
       <Hero image={<Logo
         alt="Hero Image"
         src="/images/logo_SP_text_20250831.png"
-        dimension={0.25}
+        dimension={0.125}
         variant='rounded'
       />} />
       <Divider />

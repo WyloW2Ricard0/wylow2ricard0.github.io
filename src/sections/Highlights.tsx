@@ -1,15 +1,12 @@
-import Box from '@mui/material/Box';
-import Card from '@mui/material/Card';
-import Container from '@mui/material/Container';
-import Grid from '@mui/material/Grid';
-import Stack from '@mui/material/Stack';
-import Typography from '@mui/material/Typography';
+
+import { Box, Button, Card, Container, Typography } from '@mui/material';
 import ConstructionRoundedIcon from '@mui/icons-material/ConstructionRounded';
 import QueryStatsRoundedIcon from '@mui/icons-material/QueryStatsRounded';
 import SettingsSuggestRoundedIcon from '@mui/icons-material/SettingsSuggestRounded';
 import SupportAgentRoundedIcon from '@mui/icons-material/SupportAgentRounded';
 import ThumbUpAltRoundedIcon from '@mui/icons-material/ThumbUpAltRounded';
 import SecurityRoundedIcon from '@mui/icons-material/SecurityRounded';
+import Content from '../components/content';
 
 const items = [
   {
@@ -47,40 +44,23 @@ const items = [
 
 export default function Highlights() {
     return (
-        <Container
-            id="highlights"
-            data-section-label="Avantages"
-            sx={{ m: 4, scrollMarginTop: '80px' }}
-        >
+      <Container
+        id="highlights"
+        data-section-label="Avantages"
+        sx={{ m: 4 }}
+      >
         <Box textAlign="center">
-            <Typography variant="h4" >
-                Les Avantages
-            </Typography>
-            <Typography variant="subtitle2" >
-                Une plateforme construite pour vous offrir une expérience fiable, sécurisée et intuitive. Explorez comment chaque élément a été pensé pour votre succès.
-            </Typography>
+          <Typography variant="h4" >
+            Les Avantages
+          </Typography>
+          <Typography variant="subtitle2" >
+            Une plateforme construite pour vous offrir une expérience fiable, sécurisée et intuitive. Explorez comment chaque élément a été pensé pour votre succès.
+          </Typography>
+          <Button href="/blog" variant="contained">
+            Accéder au blog
+          </Button>
         </Box>
-            <Grid container spacing={2} mt={1}>
-                {items.map((item, index) => (
-                    <Grid item key={index} xs={12} sm={6} md={4}>
-                        <Stack
-                            component={Card}
-                            p={2}
-                            sx={{ height: '100%' }}
-                        >
-                            <Box flexDirection="row" alignItems="center" display="flex"  color="primary.main">
-                                {item.icon}
-                                <Typography variant="h6">
-                                    {item.title}
-                                </Typography>
-                            </Box>
-                            <Typography variant="body2" color="text.secondary">
-                                {item.description}
-                            </Typography>
-                        </Stack>
-                    </Grid>
-                ))}
-            </Grid>
-        </Container>
+        <Content items={items} columns={3} layout="icon-left" component={Card} />
+      </Container>
     );
 }

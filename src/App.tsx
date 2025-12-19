@@ -7,6 +7,7 @@ import { theme } from './libs/theme';
 
 // Pages
 import Applications from './pages/Applications';
+import Blog from './pages/blog';
 import CGV from './pages/website-terms-conditions';
 import Dashboard from './pages/Dashboard';
 import Enseignement from './pages/Enseignement';
@@ -30,6 +31,7 @@ const App: React.FC = () => {
             {/* Public Routes */}
             <Route element={<MainLayout />}>
               <Route path="/" element={<Home />} />
+              <Route path="/blog" element={<Blog />} />
               <Route path="/privacy" element={<Privacy />} />
               <Route path="/terms" element={<CGV />} />
             </Route>

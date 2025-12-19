@@ -26,15 +26,13 @@ export default function ForgotPassword( //fenetre de reinitialisation de mot de 
     navigate('/');
   };
   return (
-    <Dialog // Fenêtre de dialogue pour la réinitialisation du mot de passe
-      open={open}           // Propriété pour contrôler l'ouverture de la boîte de dialogue
-      onClose={handleClose} // Fonction appelée lors de la fermeture
-      slotProps={{
-        paper: {
-          component: 'form',                // Formulaire pour la réinitialisation
-          onSubmit: handleSubmit,           // Gestion de la soumission du formulaire
-          sx: { backgroundImage: 'none' },  // Style pour enlever l'image de fond
-        },
+    <Dialog
+      open={open}
+      onClose={handleClose}
+      PaperProps={{
+        component: 'form',
+        onSubmit: handleSubmit,
+        sx: { backgroundImage: 'none' },
       }}
     >
       <DialogTitle>Réinitialiser votre mot de passe</DialogTitle>
@@ -47,7 +45,7 @@ export default function ForgotPassword( //fenetre de reinitialisation de mot de 
         <OutlinedInput
           autoFocus                   // Focus automatique sur le champ email
           required                    // Champ requis
-          margin="dense"              // Marge dense 
+          margin="dense"              // Marge dense
           id="email"                  // Identifiant du champ
           name="email"                // Nom du champ
           label="Adresse email"       // Étiquette du champ

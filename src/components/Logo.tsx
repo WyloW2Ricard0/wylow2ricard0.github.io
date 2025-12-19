@@ -57,12 +57,13 @@ export default function Logo({
     }
   };
 
-  if (variant === 'circular') {
-    // Utiliser Avatar pour les images circulaires
-    const size = imageDimensions 
+  // Si SVG, toujours utiliser <img> pour garder la compatibilité (Avatar ne gère pas bien le SVG)
+  const isSvg = src?.toLowerCase().endsWith('.svg');
+  if (variant === 'circular' && !isSvg) {
+    // Utiliser Avatar pour les images non-SVG circulaires
+    const size = imageDimensions
       ? Math.max(imageDimensions.width, imageDimensions.height) * dimension
       : 300 * dimension;
-    
     return (
       <Avatar
         src={src}
@@ -76,6 +77,7 @@ export default function Logo({
     );
   }
 
+  // Pour SVG ou autres variantes, utiliser <img> dans une Card
   return (
     <Card
       sx={{
