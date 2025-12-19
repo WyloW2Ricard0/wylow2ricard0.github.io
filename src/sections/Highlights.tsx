@@ -1,12 +1,11 @@
 
-import { Box, Button, Card, Container, Typography } from '@mui/material';
+import { Box, Button, Card, Container, Grid, Paper, Typography } from '@mui/material';
 import ConstructionRoundedIcon from '@mui/icons-material/ConstructionRounded';
 import QueryStatsRoundedIcon from '@mui/icons-material/QueryStatsRounded';
 import SettingsSuggestRoundedIcon from '@mui/icons-material/SettingsSuggestRounded';
 import SupportAgentRoundedIcon from '@mui/icons-material/SupportAgentRounded';
 import ThumbUpAltRoundedIcon from '@mui/icons-material/ThumbUpAltRounded';
 import SecurityRoundedIcon from '@mui/icons-material/SecurityRounded';
-import Content from '../components/content';
 
 const items = [
   {
@@ -47,7 +46,7 @@ export default function Highlights() {
       <Container
         id="highlights"
         data-section-label="Avantages"
-        sx={{ m: 4 }}
+        sx={{ py: 4 }}
       >
         <Box textAlign="center">
           <Typography variant="h4" >
@@ -60,7 +59,38 @@ export default function Highlights() {
             Accéder au blog
           </Button>
         </Box>
-        <Content items={items} columns={3} layout="icon-left" component={Card} />
+
+        <Grid
+            container
+            spacing={2}
+            justifyContent="center"
+        >
+            {items.map((item, index) => (
+                <Paper
+                    key={index}
+                    sx={{
+                        maxWidth: 330,
+                        p: 2,
+                        display: 'flex',
+                        flexDirection: 'column',
+                        alignItems: 'center',
+                        textAlign: 'center',
+                    }}
+                >
+                    <Box
+                        display="flex"
+                        flexDirection="row"
+                        alignItems="center"
+                        color="primary.main"
+                    >
+                        {item.icon}
+                        <Typography variant='h6'>{item.title}</Typography>
+                    </Box>
+                    {item.description}
+                </Paper>
+            ))}
+        </Grid>
+
       </Container>
     );
 }
