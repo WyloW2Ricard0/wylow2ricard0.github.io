@@ -1,8 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Box, Container, Typography, Card, CardContent, CardMedia, Avatar, Chip, Stack } from '@mui/material';
 import fm from 'front-matter';
-import { DateRangeCalendar } from '@mui/x-date-pickers-pro/DateRangeCalendar';
-import dayjs from 'dayjs';
 
 import { FormControl, OutlinedInput, TextField, InputLabel, MenuItem, ListItemText, Checkbox } from '@mui/material';
 import Select, { SelectChangeEvent } from '@mui/material/Select';
@@ -28,7 +26,8 @@ export default function Blog(props: { disableCustomTheme?: boolean }) {
   const [blogPosts, setBlogPosts] = useState<any[]>([]);
   const [search, setSearch] = useState('');
   const [category, setCategory] = useState<string[]>([]);
-  const [dateRange, setDateRange] = useState<[dayjs.Dayjs | null, dayjs.Dayjs | null]>([null, null]);
+  const [startDate, setStartDate] = useState('');
+  const [endDate, setEndDate] = useState('');
 
   useEffect(() => {
     fetchArticlesFromGitHub().then(setBlogPosts);
@@ -49,9 +48,9 @@ export default function Blog(props: { disableCustomTheme?: boolean }) {
     )) return false;
     // Catégorie
     if (category.length > 0 && !category.includes(post.category)) return false;
-    // Plage de date avec DateRangeCalendar
-    if (dateRange[0] && dayjs(post.date).isBefore(dateRange[0], 'day')) return false;
-    if (dateRange[1] && dayjs(post.date).isAfter(dateRange[1], 'day')) return false;
+    // Plage de dates
+    if (startDate && new Date(post.date) < new Date(startDate)) return false;
+    if (endDate && new Date(post.date) > new Date(endDate)) return false;
     return true;
   });
 
@@ -63,8 +62,9 @@ export default function Blog(props: { disableCustomTheme?: boolean }) {
             image={
             <Logo
                 alt='Blog Logo'
-                dimension={0.125}
+                dimension={0.05625}
                 src='/images/C841_fibonacci_plein_20251218.svg'
+                strokeWidth={1000}
             />
             }
             ctaText=''
@@ -73,9 +73,19 @@ export default function Blog(props: { disableCustomTheme?: boolean }) {
         <FormControl sx={{
             display: 'flex',
             flexDirection: 'row',
+            justifyContent: 'center',
+            alignItems: 'center',
+            gap: 2,
+            mb: 4,
         }}>
-            <TextField id="outlined-basic" label="Recherche" variant="outlined" value={search} />
-            <Select
+            <TextField // recherche par mot-clé
+                onChange={(e) => setSearch(e.target.value)}
+                id="outlined-basic"
+                label="Recherche"
+                variant="outlined"
+                value={search}
+            />
+            <Select // filtre par catégorie
                 multiple
                 value={category}
                 onChange={(e) => {
@@ -85,6 +95,7 @@ export default function Blog(props: { disableCustomTheme?: boolean }) {
                 input={<OutlinedInput label="Tags" />}
                 label="Tags"
                 renderValue={(selected) => (selected as string[]).join('; ')}
+                sx={{ minWidth: 150 }}
             >
                 {categories.map((cat) => (
                     <MenuItem key={cat} value={cat}>
@@ -93,10 +104,22 @@ export default function Blog(props: { disableCustomTheme?: boolean }) {
                     </MenuItem>
                 ))}
             </Select>
-            <DateRangeCalendar
-              value={dateRange}
-              onChange={(newRange: [dayjs.Dayjs | null, dayjs.Dayjs | null]) => setDateRange(newRange)}
-              calendars={1}
+            {/* Filtre par plage de date */}
+            <TextField
+              type="date"
+              label="Début"
+              InputLabelProps={{ shrink: true }}
+              value={startDate}
+              onChange={e => setStartDate(e.target.value)}
+              sx={{ mx: 1, minWidth: 120 }}
+            />
+            <TextField
+              type="date"
+              label="Fin"
+              InputLabelProps={{ shrink: true }}
+              value={endDate}
+              onChange={e => setEndDate(e.target.value)}
+              sx={{ mx: 1, minWidth: 120 }}
             />
         </FormControl>
       <Stack maxWidth="md" spacing={4} alignItems="center" mx="auto">
