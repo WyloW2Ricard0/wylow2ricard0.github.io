@@ -12,18 +12,20 @@ import Logo from '../components/Logo';
 const Home: React.FC = () => {
   return (
     <Container>
-      <Hero image={<Logo
-        alt="Hero Image"
-        src="/images/logo_SP_text_20250831.png"
-        dimension={0.125}
-        variant='rounded'
-      />} />
-      <Divider />
-      <Features />
-      <Divider />
-      <ContactSection />
-      <Divider />
-      <Highlights />
+        <Hero
+            dataSectionLabel='Piliers'
+            image={<Logo
+            alt="Hero Image"
+            src="/images/logo_SP_text_20250831.png"
+            dimension={0.125}
+            variant='rounded'
+        />} />
+        <Divider />
+        <Features />
+        <Divider />
+        <ContactSection />
+        <Divider />
+        <Highlights />
     </Container>
   );
 };

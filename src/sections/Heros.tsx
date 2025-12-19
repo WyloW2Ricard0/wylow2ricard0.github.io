@@ -7,6 +7,7 @@ import { useNavigationActions } from '../hooks/use-navigation-actions';
 interface HeroProps {
     title?: string;
     subtitle?: string;
+    dataSectionLabel?: string;
     description?: string;
     ctaText?: string;
     image?: React.ReactNode;
@@ -14,6 +15,7 @@ interface HeroProps {
 
 export default function Hero({
   title = 'Structurer pour Avancer',
+  dataSectionLabel = "Hero",
   subtitle = 'Inscrivez-vous gratuitement et accédez à des applications interactives.\nTransformez vos idées en réalité dès maintenant !',
   description = '',
   ctaText = 'Commencer',
@@ -29,7 +31,7 @@ export default function Hero({
     return (
         <Stack
             id="hero"
-            data-section-label="Hero"
+            data-section-label={dataSectionLabel}
             sx={{ scrollMarginTop: '80px' }}
             m={4}
             flexDirection="row"             // disposition en ligne
