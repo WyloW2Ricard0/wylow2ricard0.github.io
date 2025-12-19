@@ -1,16 +1,16 @@
+
+import * as React from 'react';
+
 import AutoFixHighRoundedIcon from '@mui/icons-material/AutoFixHighRounded';
 import SecurityRoundedIcon from '@mui/icons-material/SecurityRounded';
 import ThumbUpAltRoundedIcon from '@mui/icons-material/ThumbUpAltRounded';
 import EmojiEventsRoundedIcon from '@mui/icons-material/EmojiEventsRounded';
 import ArrowBackRoundedIcon from '@mui/icons-material/ArrowBackRounded';
-import * as React from 'react';
-import Box from '@mui/material/Box';
-import Container from '@mui/material/Container';
-import Button from '@mui/material/Button';
+
 import { useNavigationActions } from '../hooks/use-navigation-actions';
 import SignCard from '../layouts/sign-card';
-import Content from '../components/content';
 import { useSearchParams } from 'react-router-dom';
+import { Box, Button, Card, Container, Stack } from '@mui/material';
 
 const items = [
   {
@@ -63,8 +63,18 @@ const SignSide: React.FC<{ mode?: 'signin' | 'signup' }> = ({ mode: propMode }) 
           Accueil
         </Button>
         <Box sx={{ display: 'flex', flexDirection: 'row', gap: 4}}>
-          <SignCard mode={mode} />
-          <Content items={items} columns={1} />
+            <SignCard mode={mode} />
+            <Stack >
+                {items.map((item, index) => (
+                    <Card
+                        key={index}
+                    >
+                        {item.icon}
+                        {item.title}
+                        {item.description}
+                    </Card>
+                ))}
+            </Stack>
         </Box>
       </Box>
     </Container>
