@@ -1,0 +1,12 @@
+{
+  "printWidth": 80,           // ✓ Déjà bon
+  "tabWidth": 2,              // ✓ Déjà bon
+  "useTabs": false,           // ✓ Déjà bon (espaces)
+  "semi": true,               // ❌ Point-virgule obligatoire
+  "singleQuote": false,       // ❌ Double quotes par défaut
+  "quoteProps": "as-needed",  // ✓ Quotes sur propriétés si nécessaire
+  "trailingComma": "es5",     // ✓ Déjà bon
+  "bracketSpacing": true,     // ✓ Déjà bon
+  "arrowParens": "always",    // ❌ Parenthèses obligatoires
+  "endOfLine": "lf"           // ✓ Déjà bon
+}
