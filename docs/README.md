@@ -39,7 +39,6 @@ docs/
 - Vercel Docs: https://vercel.com/docs
 - npm package.json: https://docs.npmjs.com/cli/v9/configuring-npm/package-json
 
-
 ## 🌳 Branches
 
 - `main` : Production (déploiement Vercel)
