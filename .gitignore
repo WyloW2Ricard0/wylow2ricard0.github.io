@@ -2,3 +2,6 @@
 
 # Ignorer les packages node_modules
 node_modules/
+
+# Ignorer les fichiers de build Next.js
+.next/
