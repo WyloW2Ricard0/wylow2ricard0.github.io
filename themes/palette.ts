@@ -1,6 +1,6 @@
 import { createTheme } from '@mui/material'
 
-export const palette_theme = createTheme({
+export const theme_palette = createTheme({
   palette: {
     // contraste couleurs AA
     contrastThreshold: 4.5,

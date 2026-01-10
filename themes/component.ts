@@ -1,55 +1,121 @@
 import { createTheme } from '@mui/material'
-import { typography_theme } from './typogrphy'
+import { theme_typography } from './typogrphy'
 
-const palette = typography_theme.palette
+const palette = theme_typography.palette
+const shadows = theme_typography.shadows
+const BORDER_RADIUS = 16
+const MARGIN = 8
+const PADDING = 8
+const SPACING = 1
 
-export const component_theme = createTheme(
-  {
-    components: {
-      MuiButton: {
-        // rond au maximum pour les boutons
-        styleOverrides: {
-          root: {
-            borderRadius: 9999,
-            // modifier le props de chaque variant
-            variants: [
-              {
-                props: { variant: 'contained' },
-                style: {
-                  backgroundColor: palette.primary.main,
-                },
+/** Thème des composants personnalisés */
+export const theme_component = createTheme({
+  components: {
+    MuiAvatar: {
+      styleOverrides: {
+        root: {
+          margin: MARGIN * 2,
+          padding: 0,
+          boxShadow: shadows[12],
+          // arrondir les images pour rounded
+          variants: [
+            {
+              props: { variant: 'rounded' },
+              style: {
+                borderRadius: BORDER_RADIUS,
               },
-              {
-                props: { variant: 'outlined' },
-                style: {
-                  borderColor: palette.secondary.main,
-                  color: palette.secondary.main,
-                },
-              },
-            ],
-          },
+            },
+          ],
         },
       },
-      MuiContainer: {
-        // maxWidth: { xs: 'xs', sm: 'sm', md: 'md', lg: 'lg', xl: 'xl' } ?
-      },
-      MuiStack: {
-        defaultProps: {
-          // spacing par defaut pour les stacks
-          spacing: 2,
-          // alignement par defaut pour les stacks
-          alignItems: 'center',
-          justifyContent: 'center',
+    },
+    MuiButton: {
+      // rond au maximum pour les boutons
+      styleOverrides: {
+        root: {
+          borderRadius: 9999,
+          boxShadow: shadows[6],
+          // modifier le props de chaque variant
+          variants: [
+            {
+              props: { variant: 'contained' },
+              style: {
+                backgroundColor: palette.primary.main,
+              },
+            },
+            {
+              props: { variant: 'outlined' },
+              style: {
+                borderColor: palette.secondary.main,
+                color: palette.secondary.main,
+              },
+            },
+          ],
         },
-        styleOverrides: {
-          root: {
-            // marge et padding par defaut pour les stacks
-            margin: '8px',
-            padding: '8px',
+      },
+    },
+    MuiCard: {
+      styleOverrides: {
+        root: {
+          margin: MARGIN,
+          padding: PADDING,
+          cursor: 'pointer',
+          boxShadow: shadows[6],
+          border: `2px solid`,
+          borderColor: palette.primary.main,
+          borderRadius: BORDER_RADIUS,
+        },
+      },
+    },
+    MuiContainer: {
+      // maxWidth: { xs: 'xs', sm: 'sm', md: 'md', lg: 'lg', xl: 'xl' } ?
+    },
+    MuiGrid: {
+      variants: [
+        {
+          props: { container: true },
+          style: {
+            spacing: SPACING,
           },
+        },
+        {
+          props: { item: true },
+          style: {
+            margin: MARGIN,
+            padding: PADDING,
+            border: `2px solid`,
+            borderColor: palette.primary.main,
+            boxShadow: shadows[6],
+            borderRadius: BORDER_RADIUS,
+          },
+        },
+      ],
+    },
+    MuiPaper: {
+      styleOverrides: {
+        root: {
+          //margin: MARGIN,
+          //padding: PADDING * 2,
+          borderRadius: BORDER_RADIUS,
+          boxShadow: shadows[24],
+        },
+      },
+    },
+    MuiStack: {
+      defaultProps: {
+        // spacing par defaut pour les stacks
+        spacing: SPACING,
+        // alignement par defaut pour les stacks
+        alignItems: 'center',
+        justifyContent: 'center',
+      },
+      styleOverrides: {
+        root: {
+          margin: MARGIN,
+          padding: PADDING,
+          //boxShadow: shadows[24],
         },
       },
     },
   },
-  typography_theme
-)
+})

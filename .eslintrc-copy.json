@@ -1,0 +1,105 @@
+{
+  "extends": [
+    "next/core-web-vitals",
+    "prettier",
+    "plugin:@typescript-eslint/recommended"
+  ],
+  "parser": "@typescript-eslint/parser",
+  "plugins": ["@typescript-eslint"],
+  "rules": {
+    "@typescript-eslint/naming-convention": [
+      "error",
+      {
+        // Variables : snake_case
+        "selector": "variable",
+        "format": ["snake_case"],
+        "leadingUnderscore": "allow"
+      },
+      {
+        // Fonctions : camelCase avec verbes préfixés
+        "selector": "function",
+        "format": ["camelCase"],
+        "prefix": [
+          // === RÉCUPÉRATION / LECTURE ===
+          "get", // recuperer une valeur simple
+          "fetch", // recuperer via API/async
+          "load", // charger une ressource
+          "read", // lire des données
+          "find", // rechercher un element
+          "retrieve", // recuperer des donnees complexes
+
+          // === MODIFICATION / ÉCRITURE ===
+          "set", // definir une valeur
+          "update", // modifier une valeur existante
+          "save", // persister les données
+          "create", // creer un nouvel objet
+          "build", // construire/assembler un objet
+          "init", // initialiser
+          "delete", // supprimer
+          "remove", // enlever
+
+          // === VÉRIFICATION / VALIDATION ===
+          "is", // booleen - etat
+          "has", // booleen - possession
+          "can", // booleen - permission
+          "validate", // valider les données
+          "check", // verifier une condition
+          "compare", // comparer des valeurs
+
+          // === TRAITEMENT / CALCUL ===
+          "calc", // calculer
+          "process", // traiter les données
+          "parse", // analyser/convertir
+          "format", // formater les données
+          "transform", // transformer
+          "generate", // generer des valeurs
+
+          // === ÉVÉNEMENTS / HANDLERS ===
+          "handle", // gestionnaire d'evenement
+          "on", // listener d'evenement
+          "trigger", // declencher
+          "submit", // soumettre (formulaire)
+
+          // === COMMUNICATION / ENVOI ===
+          "send", // envoyer des données
+          "receive", // recevoir des données
+          "emit", // emettre un signal
+          "broadcast", // diffuser
+          "post", // poster (API)
+          "request", // requeter des données
+
+          // === AFFICHAGE / RENDU ===
+          "render", // afficher/generer UI
+          "display", // montrer
+          "show", // afficher
+          "hide", // masquer
+          "print", // imprimer
+          "draw", // dessiner
+
+          // === LOGGING / DEBUG ===
+          "log", // journaliser
+          "debug", // deboguer
+          "warn", // avertissement
+          "error" // erreur
+        ]
+      },
+      {
+        // Classes : PascalCase
+        "selector": "class",
+        "format": ["PascalCase"]
+      },
+      {
+        // Types/Interfaces : PascalCase avec prefix
+        "selector": "typeLike",
+        "format": ["PascalCase"],
+        "prefix": ["Type", "Interface", "Props", "State"]
+      },
+      {
+        // Constantes : UPPER_CASE
+        "selector": "variable",
+        "modifiers": ["const"],
+        "format": ["UPPER_CASE"]
+      }
+    ]
+  }
+}
