@@ -1,8 +1,8 @@
 import { createTheme } from '@mui/material'
-import { theme_typography } from './typogrphy'
+import { theme_typography } from './theme-typogrphy'
 
 const palette = theme_typography.palette
-const shadows = theme_typography.shadows
+const shadows = createTheme().shadows
 const BORDER_RADIUS = 16
 const MARGIN = 8
 const PADDING = 8
@@ -10,6 +10,8 @@ const SPACING = 1
 
 /** Thème des composants personnalisés */
 export const theme_component = createTheme({
+  palette: palette,
+  typography: theme_typography.typography,
   components: {
     MuiAvatar: {
       styleOverrides: {
@@ -94,8 +96,8 @@ export const theme_component = createTheme({
     MuiPaper: {
       styleOverrides: {
         root: {
-          //margin: MARGIN,
-          //padding: PADDING * 2,
+          margin: 0,
+          padding: 0,
           borderRadius: BORDER_RADIUS,
           boxShadow: shadows[24],
         },
