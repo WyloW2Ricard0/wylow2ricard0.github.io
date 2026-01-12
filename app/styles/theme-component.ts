@@ -4,7 +4,7 @@ import { theme_typography } from './theme-typogrphy'
 const palette = theme_typography.palette
 const shadows = createTheme().shadows
 const BORDER_RADIUS = 16
-const MARGIN = 8
+const MARGIN = 0
 const PADDING = 8
 const SPACING = 1
 
@@ -36,12 +36,14 @@ export const theme_component = createTheme({
       styleOverrides: {
         root: {
           borderRadius: 9999,
-          boxShadow: shadows[6],
+          margin: MARGIN,
+          //padding: 0,
           // modifier le props de chaque variant
           variants: [
             {
               props: { variant: 'contained' },
               style: {
+                boxShadow: shadows[6],
                 backgroundColor: palette.primary.main,
               },
             },
@@ -49,7 +51,20 @@ export const theme_component = createTheme({
               props: { variant: 'outlined' },
               style: {
                 borderColor: palette.secondary.main,
+                boxShadow: shadows[6],
                 color: palette.secondary.main,
+              },
+            },
+            {
+              props: { variant: 'text' },
+              style: {
+                boxShadow: shadows[0],
+                //borderColor: palette.secondary.main,
+                color: palette.text.secondary,
+                //margin: 0,
+                //padding: PADDING,
+                // souligner le texte
+                //textDecoration: 'underline',
               },
             },
           ],
@@ -77,13 +92,14 @@ export const theme_component = createTheme({
         {
           props: { container: true },
           style: {
-            spacing: SPACING,
+            margin: MARGIN,
+            padding: PADDING,
           },
         },
         {
           props: { item: true },
           style: {
-            margin: MARGIN,
+            margin: PADDING,
             padding: PADDING,
             border: `2px solid`,
             borderColor: palette.primary.main,
@@ -96,8 +112,8 @@ export const theme_component = createTheme({
     MuiPaper: {
       styleOverrides: {
         root: {
-          margin: 0,
-          padding: 0,
+          margin: MARGIN,
+          padding: PADDING,
           borderRadius: BORDER_RADIUS,
           boxShadow: shadows[24],
         },

@@ -7,19 +7,24 @@ export default function SectionContact({
   title = '',
   subtitle = '',
   description = '',
-  text_button_contained = '',
-  text_button_outlined = '',
+  text_contained = '',
+  text_outlined = '',
   image = '',
 }: propHero) {
   return (
-    <Stack direction={{ xs: 'column', md: 'row' }} sx={{ width: '100%' }}>
+    <Stack
+      direction={{ xs: 'column', md: 'row' }}
+      sx={{ width: '100%' }}
+      pb={4}
+      pt={4}
+    >
       <SectionHero
-        component="contact"
+        component="section"
         title={title}
         subtitle={subtitle}
         description={description}
-        text_button_contained={text_button_contained}
-        text_button_outlined={text_button_outlined}
+        text_contained={text_contained}
+        text_outlined={text_outlined}
         image={image}
       />
       <FormContact />

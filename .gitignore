@@ -1,7 +1,10 @@
 # Fichier git ignorer
 
-# Ignorer des dépendances
+## Ignorer les fichiers de configuration d'environnement
+.env.local
+
+## Ignorer des dépendances
 node_modules/
 
-# Ignorer les fichiers de build Next.js
+## Ignorer les fichiers de build Next.js
 .next/

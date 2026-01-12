@@ -2,7 +2,7 @@ import { propItemFeature } from './components/section-feature'
 
 export const ITEMS_FEATURES: propItemFeature[] = [
   {
-    icon: '🖥️',
+    icon_title: '🖥️',
     title: 'Tableau de bord',
     description:
       "Profiter d'un espace centralisé pour visualiser toutes vos données en un seul endroit.",
@@ -11,7 +11,7 @@ export const ITEMS_FEATURES: propItemFeature[] = [
     image_alt: 'Tableau de bord image',
   },
   {
-    icon: '💼',
+    icon_title: '💼',
     title: 'Applications professionnelles',
     description:
       'Utilisez-les directement sur le site avec de nouvelles fonctionnalités opérationnelles.',
@@ -20,7 +20,7 @@ export const ITEMS_FEATURES: propItemFeature[] = [
     image_alt: 'Applications professionnelles image',
   },
   {
-    icon: '🎓',
+    icon_title: '🎓',
     title: 'Gestion de contenu',
     description:
       "Guides concis pour maîtriser rapidement les méthodes d'application.",

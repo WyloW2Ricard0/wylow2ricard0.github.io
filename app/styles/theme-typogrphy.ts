@@ -45,13 +45,14 @@ export const theme_typography = createTheme({
     },
     subtitle1: {
       color: PALETTE.text.primary,
-      textTransform: 'uppercase',
+      fontWeight: 'bold',
       fontSize: SIZE * 2,
+      textTransform: 'uppercase',
     },
     subtitle2: {
       color: PALETTE.text.secondary,
-      textTransform: 'uppercase',
       fontSize: SIZE * 2,
+      textTransform: 'uppercase',
     },
     body1: {
       color: PALETTE.text.primary,
